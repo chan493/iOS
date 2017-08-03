@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Photo</key>
+		<string>/Images/coffeebeans.png</string>
+		<key>Location</key>
+		<dict>
+			<key>Longitude</key>
+			<real>-122.417158</real>
+			<key>Latitude</key>
+			<real>37.781453</real>
+		</dict>
+		<key>Address</key>
+		<string>Philz Coffee, 399 Golden Gate Ave, San Francisco, CA 94102</string>
+		<key>Name</key>
+		<string>T1</string>
+	</dict>
+	<dict>
+		<key>Photo</key>
+		<string>/Images/coffeebeans.png</string>
+		<key>Location</key>
+		<dict>
+			<key>Longitude</key>
+			<real>-100.417158</real>
+			<key>Latitude</key>
+			<real>30.781453</real>
+		</dict>
+		<key>Address</key>
+		<string>Philz Coffee, 399 Golden Gate Ave, San Francisco, CA 94102</string>
+		<key>Name</key>
+		<string>T2</string>
+	</dict>
+</array>
+</plist>
