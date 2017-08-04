@@ -50,7 +50,6 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
     PListUser* user = PListUsers.current.allUsers[indexPath.row];
-
     @autoreleasepool {
         unsigned int numberOfProperties = 0;
         objc_property_t *propertyArray = class_copyPropertyList([PListUser class], &numberOfProperties);
@@ -58,27 +57,33 @@
         for (NSUInteger i = 0; i < numberOfProperties; i++)
         {
             objc_property_t property = propertyArray[i];
-            NSString *name =  [[NSString alloc] initWithUTF8String:property_getName(property)];
-            NSString *attributesString = [[NSString alloc] initWithUTF8String:property_getAttributes(property)];
+            NSString* name =  [[NSString alloc] initWithUTF8String:property_getName(property)];
+            NSString* attributesString = [[NSString alloc] initWithUTF8String:property_getAttributes(property)];
+            
             NSLog(@"Property %@ attributes: %@", name, attributesString);
+            NSLog(@"User : %@",[user valueForKey:name]);
+            
+            UILabel* label = [[UILabel alloc] init];
+            label.lineBreakMode = NSLineBreakByWordWrapping;
+            [label setTranslatesAutoresizingMaskIntoConstraints:NO];
+            [label addConstraint:[NSLayoutConstraint constraintWithItem:label
+                                                              attribute:NSLayoutAttributeWidth
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:nil
+                                                              attribute:NSLayoutAttributeNotAnAttribute
+                                                             multiplier:1
+                                                               constant:200]];
+            label.font = [UIFont fontWithName:@"System" size:17.0];
+            
+            if ([name isEqual: @"name"]) {
+                label.font = [UIFont fontWithName:@"System Bold" size:18.0];
+            }
+            
+            label.text = [NSString stringWithFormat:@"%@", [user valueForKey:name]];
+            [cell addSubview:label];
         }
         free(propertyArray);
-    }    
-    
-//    for () {
-//        UILabel* label = [[UILabel alloc] init];
-//        label.lineBreakMode = NSLineBreakByWordWrapping;
-//        [label setTranslatesAutoresizingMaskIntoConstraints:NO];
-//        [label addConstraint:[NSLayoutConstraint constraintWithItem:titleLabel
-//                                                               attribute:NSLayoutAttributeWidth
-//                                                               relatedBy:NSLayoutRelationEqual
-//                                                                  toItem:nil
-//                                                               attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:200]];
-//        label.font = [UIFont fontWithName:@"System Bold" size:18.0];
-//        
-//        label.text = ];
-//        [cell addSubview:label];
-//    }
+    }
     
     return cell;
 }
