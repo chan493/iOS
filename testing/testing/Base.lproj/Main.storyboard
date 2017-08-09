@@ -178,11 +178,11 @@
             </objects>
             <point key="canvasLocation" x="2773" y="342"/>
         </scene>
-        <!--Map-->
+        <!--User-->
         <scene sceneID="e5Q-pZ-2Vu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v7L-BM-K7w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="first" id="eYQ-O0-ISL"/>
+                    <tabBarItem key="tabBarItem" title="User" image="first" id="eYQ-O0-ISL"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NrN-xw-bfT">
@@ -242,11 +242,27 @@
                     <connections>
                         <segue destination="v7L-BM-K7w" kind="relationship" relationship="viewControllers" id="4tp-mA-aE7"/>
                         <segue destination="IPp-ma-Pyo" kind="relationship" relationship="viewControllers" id="zJQ-mW-y0a"/>
+                        <segue destination="1KV-of-Icv" kind="relationship" relationship="viewControllers" id="RKZ-qH-rfg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16f-Ch-sVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="427" y="852"/>
+        </scene>
+        <!--Web-->
+        <scene sceneID="QV4-ys-JV1">
+            <objects>
+                <viewController id="1KV-of-Icv" userLabel="Web" customClass="web" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="DR6-ff-sGG" customClass="WebPageViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
+                    <tabBarItem key="tabBarItem" title="Web" image="second" id="ARw-5F-iGU" userLabel="Web"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erO-Y2-uGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1454" y="1950"/>
         </scene>
     </scenes>
     <resources>
