@@ -15,29 +15,32 @@
     static PListUsers* users = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^ {
-       users  = [[self alloc] init];
+        users  = [[self alloc] init];
     });
     return users;
 }
 
 -(NSMutableArray*)allUsers {
-    NSMutableArray* currentDic = [[NSMutableArray alloc] init];
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
-    NSMutableArray* data = [[NSMutableArray alloc] initWithContentsOfFile: path];
-    
-    for(NSDictionary* dict in data) {
-        PListUser* u = [[PListUser alloc]initWithDictionary:dict];
-        [currentDic addObject:u];
+    @autoreleasepool {
+        NSMutableArray* currentDic = [[NSMutableArray alloc] init];
+        NSString* path = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"plist"];
+        NSMutableArray* data = [[NSMutableArray alloc] initWithContentsOfFile: path];
+        
+        for(NSDictionary* dict in data) {
+            PListUser* u = [[PListUser alloc]initWithDictionary:dict];
+            [currentDic addObject:u];
+        }
+        
+        return currentDic;
     }
-    return currentDic;
 }
 
 -(PListUser*)getUserByName:(NSString*)name {
-    NSPredicate* filter = [NSPredicate predicateWithFormat:@"name == %@", name];
-    NSArray* matchUser = [((NSArray*)[self allUsers]) filteredArrayUsingPredicate:filter];
-    return [matchUser count] == 1 ? matchUser[0] : nil;
+    @autoreleasepool {
+        NSPredicate* filter = [NSPredicate predicateWithFormat:@"name == %@", name];
+        NSArray* matchUser = [((NSArray*)[self allUsers]) filteredArrayUsingPredicate:filter];
+        return [matchUser count] == 1 ? matchUser[0] : nil;
+    }
 }
-
-
 
 @end
