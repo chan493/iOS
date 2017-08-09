@@ -72,9 +72,6 @@
             NSString* name =  [[NSString alloc] initWithUTF8String:property_getName(property)];
             NSString* attributesString = [[NSString alloc] initWithUTF8String:property_getAttributes(property)];
             
-            NSLog(@"Property %@ attributes: %@", name, attributesString);
-            NSLog(@"User : %@",[user valueForKey:name]);
-            
             UILabel* label = [[UILabel alloc] init];
             
  //           label.lineBreakMode = NSLineBreakByWordWrapping;
