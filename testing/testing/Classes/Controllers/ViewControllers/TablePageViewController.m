@@ -57,6 +57,11 @@
     static NSString* cellId = @"PListUserDataCell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
+    // dynamic create reuserable cell
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    
     PListUser* user = PListUsers.current.allUsers[indexPath.row];
     
     [cell setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -70,7 +75,7 @@
         {
             objc_property_t property = propertyArray[i];
             NSString* name =  [[NSString alloc] initWithUTF8String:property_getName(property)];
-            NSString* attributesString = [[NSString alloc] initWithUTF8String:property_getAttributes(property)];
+  //          NSString* attributesString = [[NSString alloc] initWithUTF8String:property_getAttributes(property)];
             
             UILabel* label = [[UILabel alloc] init];
             
@@ -102,7 +107,7 @@
                                                                       toItem:cell.contentView
                                                                    attribute:NSLayoutAttributeTop
                                                                   multiplier:1
-                                                                    constant:(indexPath.row == 0 ? i + 1: i) * 20];
+                                                                    constant:i * 20];
             
             NSArray* constraintArray = [NSArray arrayWithObjects:lc1, lc2, lc3, nil];
 

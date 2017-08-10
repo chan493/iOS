@@ -57,6 +57,11 @@
                                     <action selector="handleButtonClick:" destination="BYZ-38-t0r" eventType="touchDown" id="DHH-Hi-z8i"/>
                                 </connections>
                             </button>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OuS-7Q-wmL">
+                                <rect key="frame" x="47" y="574" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -206,16 +211,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PListUserDataCell" id="qie-cr-O3u">
-                                <rect key="frame" x="0.0" y="22" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qie-cr-O3u" id="FBE-Ws-sAb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Fc4-24-gUx">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIK-1z-xPA">
+                                    <rect key="frame" x="152.5" y="11" width="69.5" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="dIK-1z-xPA" firstAttribute="centerY" secondItem="Fc4-24-gUx" secondAttribute="centerY" id="X3m-NK-ofi"/>
+                                <constraint firstItem="dIK-1z-xPA" firstAttribute="centerX" secondItem="Fc4-24-gUx" secondAttribute="centerX" id="c9s-M6-Vro"/>
+                            </constraints>
+                        </view>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="IPp-ma-Pyo" id="LFe-ZD-O9b"/>
@@ -223,10 +235,12 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Table" image="second" id="Pgd-Jh-D8d"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mme-zq-bKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="1211"/>
+            <point key="canvasLocation" x="1453.5999999999999" y="1210.344827586207"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1gd-6H-yuH">
@@ -249,16 +263,20 @@
             </objects>
             <point key="canvasLocation" x="427" y="852"/>
         </scene>
-        <!--Web-->
+        <!--Web View Page-->
         <scene sceneID="QV4-ys-JV1">
             <objects>
-                <viewController id="1KV-of-Icv" userLabel="Web" customClass="web" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="DR6-ff-sGG" customClass="WebPageViewController">
+                <viewController id="1KV-of-Icv" userLabel="Web View Page" customClass="WebPageViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="DR6-ff-sGG" userLabel="Web View" customClass="WebPageViewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </webView>
                     <tabBarItem key="tabBarItem" title="Web" image="second" id="ARw-5F-iGU" userLabel="Web"/>
+                    <connections>
+                        <outlet property="viewWeb" destination="DR6-ff-sGG" id="Rob-dw-ikR"/>
+                        <outlet property="webView" destination="DR6-ff-sGG" id="PE6-Cl-23w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erO-Y2-uGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

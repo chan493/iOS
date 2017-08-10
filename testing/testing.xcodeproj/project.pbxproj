@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		110C28A41F3B2126004FA079 /* WebPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C28A31F3B2126004FA079 /* WebPageViewController.m */; };
+		110C28A71F3C212F004FA079 /* WebPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110C28A61F3C212F004FA079 /* WebPageViewController.m */; };
 		113B854C1F31C12300800314 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113B854B1F31C12300800314 /* UIKit.framework */; };
 		113B854E1F31C14500800314 /* libobjc.A.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 113B854D1F31C14500800314 /* libobjc.A.tbd */; };
 		117650B31F3081ED0009F2CC /* TablePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79D7C471E5EE18C00CFD1A6 /* TablePageViewController.m */; };
@@ -30,8 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		110C28A21F3B2126004FA079 /* WebPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPageViewController.h; sourceTree = "<group>"; };
-		110C28A31F3B2126004FA079 /* WebPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPageViewController.m; sourceTree = "<group>"; };
+		110C28A51F3C212F004FA079 /* WebPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPageViewController.h; sourceTree = "<group>"; };
+		110C28A61F3C212F004FA079 /* WebPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPageViewController.m; sourceTree = "<group>"; };
 		113B854B1F31C12300800314 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		113B854D1F31C14500800314 /* libobjc.A.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libobjc.A.tbd; path = usr/lib/libobjc.A.tbd; sourceTree = SDKROOT; };
 		11DDC5321F25E4450053DF62 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
@@ -160,8 +160,8 @@
 				D79D7C291E5C3AE200CFD1A6 /* ViewController.m */,
 				D79D7C461E5EE18C00CFD1A6 /* TablePageViewController.h */,
 				D79D7C471E5EE18C00CFD1A6 /* TablePageViewController.m */,
-				110C28A21F3B2126004FA079 /* WebPageViewController.h */,
-				110C28A31F3B2126004FA079 /* WebPageViewController.m */,
+				110C28A51F3C212F004FA079 /* WebPageViewController.h */,
+				110C28A61F3C212F004FA079 /* WebPageViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 				117650B31F3081ED0009F2CC /* TablePageViewController.m in Sources */,
 				D79D7C381E5C3AE200CFD1A6 /* PListUsers.m in Sources */,
 				D79D7C391E5C3AE200CFD1A6 /* AppConfig.m in Sources */,
-				110C28A41F3B2126004FA079 /* WebPageViewController.m in Sources */,
+				110C28A71F3C212F004FA079 /* WebPageViewController.m in Sources */,
 				D79D7C341E5C3AE200CFD1A6 /* MapPageViewController.m in Sources */,
 				D79D7BC61E5C3A3600CFD1A6 /* main.m in Sources */,
 				D79D7C351E5C3AE200CFD1A6 /* TabBarController.m in Sources */,
