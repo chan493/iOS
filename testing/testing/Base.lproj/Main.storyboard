@@ -203,6 +203,24 @@
             </objects>
             <point key="canvasLocation" x="1239" y="342"/>
         </scene>
+        <!--Web View Page Controller-->
+        <scene sceneID="unq-VJ-eN3">
+            <objects>
+                <viewController id="2jl-o9-3Qp" userLabel="Web View Page Controller" customClass="WebPageViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="X23-9Y-gZd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
+                    <tabBarItem key="tabBarItem" title="Web" image="second" id="ZqB-nx-MYv"/>
+                    <connections>
+                        <outlet property="viewWeb" destination="X23-9Y-gZd" id="ana-ge-Nf7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgU-nq-ksH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1454" y="1957"/>
+        </scene>
         <!--Table-->
         <scene sceneID="Ibw-zI-zts">
             <objects>
@@ -215,8 +233,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIK-1z-xPA">
-                                    <rect key="frame" x="152.5" y="11" width="69.5" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIK-1z-xPA">
+                                    <rect key="frame" x="166" y="11" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -256,31 +274,12 @@
                     <connections>
                         <segue destination="v7L-BM-K7w" kind="relationship" relationship="viewControllers" id="4tp-mA-aE7"/>
                         <segue destination="IPp-ma-Pyo" kind="relationship" relationship="viewControllers" id="zJQ-mW-y0a"/>
-                        <segue destination="1KV-of-Icv" kind="relationship" relationship="viewControllers" id="RKZ-qH-rfg"/>
+                        <segue destination="2jl-o9-3Qp" kind="relationship" relationship="viewControllers" id="tUd-Q5-7Dg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16f-Ch-sVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="427" y="852"/>
-        </scene>
-        <!--Web View Page-->
-        <scene sceneID="QV4-ys-JV1">
-            <objects>
-                <viewController id="1KV-of-Icv" userLabel="Web View Page" customClass="WebPageViewController" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="DR6-ff-sGG" userLabel="Web View" customClass="WebPageViewController">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </webView>
-                    <tabBarItem key="tabBarItem" title="Web" image="second" id="ARw-5F-iGU" userLabel="Web"/>
-                    <connections>
-                        <outlet property="viewWeb" destination="DR6-ff-sGG" id="Rob-dw-ikR"/>
-                        <outlet property="webView" destination="DR6-ff-sGG" id="PE6-Cl-23w"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="erO-Y2-uGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1454" y="1950"/>
         </scene>
     </scenes>
     <resources>

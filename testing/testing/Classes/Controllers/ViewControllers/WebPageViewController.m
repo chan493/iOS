@@ -16,10 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *fullURL = @"http://conecode.com";
+    NSString *fullURL = @"https://www.yahoo.com.hk";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [_viewWeb loadRequest:requestObj];
+    [self.viewWeb loadRequest:requestObj];
 }
 
 - (void)didReceiveMemoryWarning {
