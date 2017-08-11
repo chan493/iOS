@@ -28,7 +28,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
     PListUser* user = [[PListUsers current] user];
     CLLocationCoordinate2D poiCoodinates;
     
@@ -37,6 +36,11 @@
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(poiCoodinates, 750, 750);
     
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.title = user.name;
+    annotation.coordinate = poiCoodinates;
+    
+    [self.mapView addAnnotation:annotation];
     [self.mapView setRegion:viewRegion animated:YES];
     [super viewDidAppear:true];
 }

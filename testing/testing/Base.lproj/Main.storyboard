@@ -148,7 +148,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zh-fB-MEq">
-                                <rect key="frame" x="188" y="433.5" width="0.0" height="0.0"/>
+                                <rect key="frame" x="50" y="433.5" width="275" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -164,11 +164,13 @@
                         <constraints>
                             <constraint firstItem="epC-tc-rDc" firstAttribute="top" secondItem="LFD-rD-zK5" secondAttribute="bottom" constant="55" id="Lmw-po-cBE"/>
                             <constraint firstItem="7zh-fB-MEq" firstAttribute="centerX" secondItem="SMz-o2-0Hg" secondAttribute="centerX" id="LyU-iv-8ys"/>
+                            <constraint firstItem="7zh-fB-MEq" firstAttribute="leading" secondItem="SMz-o2-0Hg" secondAttribute="leading" constant="50" id="Vqc-GN-sWh"/>
                             <constraint firstItem="bcG-B6-lLM" firstAttribute="centerY" secondItem="SMz-o2-0Hg" secondAttribute="centerY" constant="200" id="WQo-89-nHD"/>
                             <constraint firstItem="bcG-B6-lLM" firstAttribute="centerX" secondItem="SMz-o2-0Hg" secondAttribute="centerX" id="Zmz-hE-Tpn"/>
                             <constraint firstItem="epC-tc-rDc" firstAttribute="leading" secondItem="SMz-o2-0Hg" secondAttribute="leading" id="aTM-Bm-ter"/>
                             <constraint firstItem="7zh-fB-MEq" firstAttribute="centerY" secondItem="SMz-o2-0Hg" secondAttribute="centerY" constant="100" id="gdD-Jh-BjO"/>
                             <constraint firstAttribute="trailing" secondItem="epC-tc-rDc" secondAttribute="trailing" id="rEk-g4-q9x"/>
+                            <constraint firstAttribute="trailing" secondItem="7zh-fB-MEq" secondAttribute="trailing" constant="50" id="woL-Oa-d2g"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="User Image" id="w3t-ii-85h">
