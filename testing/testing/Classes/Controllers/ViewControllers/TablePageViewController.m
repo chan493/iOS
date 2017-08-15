@@ -28,8 +28,10 @@
     @autoreleasepool {
         unsigned int numberOfProperties = 0;
         objc_property_t *propertyArray = class_copyPropertyList([PListUser class], &numberOfProperties);
-        self.tableView.rowHeight = numberOfProperties * 20;
+        self.tableView.rowHeight = fmax(0, numberOfProperties - 1) * 20;
     }
+    
+    self.tableView.sectionHeaderHeight = 40;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,11 +47,11 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [PListUsers.current.allUsers count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [PListUsers.current.allUsers count];
+    return 1;
 }
 
 
@@ -66,61 +68,57 @@
     
     [cell setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    
     @autoreleasepool {
         unsigned int numberOfProperties = 0;
-        objc_property_t *propertyArray = class_copyPropertyList([PListUser class], &numberOfProperties);
+        objc_property_t* propertyArray = class_copyPropertyList([PListUser class], &numberOfProperties);
         
         for (NSUInteger i = 0; i < numberOfProperties; i++)
         {
             objc_property_t property = propertyArray[i];
             NSString* name =  [[NSString alloc] initWithUTF8String:property_getName(property)];
-  //          NSString* attributesString = [[NSString alloc] initWithUTF8String:property_getAttributes(property)];
             
-            UILabel* label = [[UILabel alloc] init];
-            
- //           label.lineBreakMode = NSLineBreakByWordWrapping;
-            label.numberOfLines = 1;
-            
-            [label setTranslatesAutoresizingMaskIntoConstraints:NO];
-            
-            
-            NSLayoutConstraint* lc1 = [NSLayoutConstraint constraintWithItem:label
-                                                                             attribute:NSLayoutAttributeLeft
-                                                                             relatedBy:NSLayoutRelationEqual
-                                                                                toItem:cell.contentView
-                                                                             attribute:NSLayoutAttributeLeft
-                                                                            multiplier:1
-                                                                              constant:20];
-            
-            NSLayoutConstraint* lc2 = [NSLayoutConstraint constraintWithItem:label
-                                                                             attribute:NSLayoutAttributeWidth
-                                                                             relatedBy:NSLayoutRelationEqual
-                                                                                toItem:nil
-                                                                             attribute:NSLayoutAttributeNotAnAttribute
-                                                                            multiplier:1
-                                                                              constant:cell.bounds.size.width - 40];
-            
-            NSLayoutConstraint* lc3 = [NSLayoutConstraint constraintWithItem:label
-                                                                   attribute:NSLayoutAttributeTop
-                                                                   relatedBy:NSLayoutRelationEqual
-                                                                      toItem:cell.contentView
-                                                                   attribute:NSLayoutAttributeTop
-                                                                  multiplier:1
-                                                                    constant:i * 20];
-            
-            NSArray* constraintArray = [NSArray arrayWithObjects:lc1, lc2, lc3, nil];
-
-            label.font = [UIFont fontWithName:@"System" size:17.0];
-            
-            if ([name isEqual: @"name"]) {
-                label.font = [UIFont fontWithName:@"System Bold" size:18.0];
+            if (![name isEqual: @"name"]) {
+                //  NSString* attributesString = [[NSString alloc] initWithUTF8String:property_getAttributes(property)];
+                
+                UILabel* label = [[UILabel alloc] init];
+                //   label.lineBreakMode = NSLineBreakByWordWrapping;
+                label.numberOfLines = 1;
+                
+                [label setTranslatesAutoresizingMaskIntoConstraints:NO];
+                
+                
+                NSLayoutConstraint* lc1 = [NSLayoutConstraint constraintWithItem:label
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:cell.contentView
+                                                                       attribute:NSLayoutAttributeLeft
+                                                                      multiplier:1
+                                                                        constant:20];
+                
+                NSLayoutConstraint* lc2 = [NSLayoutConstraint constraintWithItem:label
+                                                                       attribute:NSLayoutAttributeWidth
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:nil
+                                                                       attribute:NSLayoutAttributeNotAnAttribute
+                                                                      multiplier:1
+                                                                        constant:cell.bounds.size.width - 40];
+                
+                NSLayoutConstraint* lc3 = [NSLayoutConstraint constraintWithItem:label
+                                                                       attribute:NSLayoutAttributeTop
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:cell.contentView
+                                                                       attribute:NSLayoutAttributeTop
+                                                                      multiplier:1
+                                                                        constant:(i - 1) * 20];
+                
+                NSArray* constraintArray = [NSArray arrayWithObjects:lc1, lc2, lc3, nil];
+                
+                label.font = [UIFont fontWithName:@"System" size:17.0];
+                label.text = [NSString stringWithFormat:@"%@", [user valueForKey:name]];
+                
+                [cell.contentView addSubview:label];
+                [cell.contentView addConstraints:constraintArray];
             }
-            
-            label.text = [NSString stringWithFormat:@"%@", [user valueForKey:name]];
-            
-            [cell.contentView addSubview:label];
-            [cell.contentView addConstraints:constraintArray];
         }
         free(propertyArray);
     }
@@ -128,30 +126,39 @@
     return cell;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(20, 11, tableView.frame.size.width, 18)];
+    
+    [label setFont:[UIFont boldSystemFontOfSize:18]];
+    [label setTextColor:[UIColor whiteColor]];
+    [label setText:[PListUsers.current.allUsers[section] name]];
+    
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]];
+    return view;
+}
+
 // Use too memeroy if each cell are different value
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return 40;
 //}
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
+//  Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //  Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        //  Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
 
 /*
  // Override to support rearranging the table view.
